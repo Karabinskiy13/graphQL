@@ -1,0 +1,22 @@
+{
+  "name": "graphql",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon server/app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "express-graphql": "^0.7.1",
+    "graphql": "^14.7.0",
+    "mongoose": "^5.13.15",
+    "nodemon": "^1.19.4"
+  },
+  "devDependencies": {
+    "@types/express-graphql": "^0.9.0"
+  }
+}
