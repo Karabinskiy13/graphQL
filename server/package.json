@@ -6,7 +6,6 @@
   "scripts": {
     "dev": "nodemon server/app.js"
   },
-  "type": "module",
   "author": "",
   "license": "ISC",
   "dependencies": {
@@ -14,6 +13,7 @@
     "@types/react": "^18.0.20",
     "@types/react-dom": "^18.0.6",
     "@types/react-redux": "^7.1.24",
+    "body-parser": "^1.20.1",
     "cors": "^2.8.5",
     "eslint-config-react-typescript": "^1.0.10",
     "eslint-plugin-react-hooks": "^4.6.0",
