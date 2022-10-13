@@ -1,13 +1,16 @@
-import { gql } from "apollo-boost";
-
-export const ALL_MOVIES = gql`
+import { gql } from "@apollo/client";
+export const ALL_DIRECTORS = gql`
   {
-    movies {
+    directors {
       id
+      image
       name
-      genre
-      director {
+      age
+      movies {
         name
+        id
+        image
+        genre
       }
     }
   }

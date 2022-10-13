@@ -12,6 +12,7 @@ const MovieType = new GraphQLObjectType({
   fields: () => ({
     id: { type: GraphQLID },
     name: { type: GraphQLString },
+    image: { type: GraphQLString },
     genre: { type: GraphQLString },
     director: {
       type: DirectorType,
@@ -26,12 +27,13 @@ const DirectorType = new GraphQLObjectType({
   name: 'Director',
   fields: () => ({
     id: { type: GraphQLID },
+    image: { type: GraphQLString },
     name: { type: GraphQLString },
     age: { type: GraphQLInt },
     movies: {
       type: new GraphQLList(MovieType),
-      resolve(parent, args) {
-        return Movie.find({ directorId: parent.id });
+      resolve(parent) {
+        return Movie.find({ directorId: parent._id });
       }
     }
   })
@@ -43,26 +45,26 @@ const Query = new GraphQLObjectType({
     movie: {
       type: MovieType,
       args: { id: { type: GraphQLID } },
-      resolve(parent, args) {
+      resolve(args) {
         return Movie.findById(args.id);
       }
     },
     director: {
       type: DirectorType,
       args: { id: { type: GraphQLID } },
-      resolve(parent, args) {
+      resolve(args) {
         return Director.findById(args.id);
       }
     },
     movies: {
       type: new GraphQLList(MovieType),
-      resolve(parent, args) {
+      resolve() {
         return Movie.find({});
       }
     },
     directors: {
       type: new GraphQLList(DirectorType),
-      resolve(parent, args) {
+      resolve() {
         return Director.find({});
       }
     }

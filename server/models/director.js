@@ -1,9 +1,10 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const mongoose = require('mongoose');
+
 const Schema = mongoose.Schema;
 
 const directorSchema = new Schema({
-  id: String,
+  image: String,
   name: String,
   age: Number
 });

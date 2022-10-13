@@ -1,25 +1,16 @@
 import React from "react";
-import { Query } from "react-apollo";
-import { ALL_MOVIES } from "./queries";
+import { Content, Images } from "../styled/MovieList";
+import { Typography } from "@mui/material";
 
-const MoviesList = () => {
-  return (
-    <div>
-      <Query query={ALL_MOVIES}>
-        <p>{movies.data}</p>
-      </Query>
-    </div>
-  );
-};
+const MoviesList = ({ movies }) =>
+  movies.map(({ name, image, genre }) => (
+    <Content key={name}>
+      <Typography variant="h6">{name}</Typography>
+      <Images src={image} alt="poster" />
+      <Typography variant="h6" style={{ marginTop: "15px" }}>
+        Genre:{genre}
+      </Typography>
+    </Content>
+  ));
 
 export default MoviesList;
-//   {/* {({ loading, data, error }) => {
-//       if (loading) return "Loading...";
-
-//       if (error) return <p>{error.message}</p>;
-
-//       if (data)
-//         return data.movies.map((movie) => {
-//           <div>{movie.name}</div>;
-//         });
-//     }} */}

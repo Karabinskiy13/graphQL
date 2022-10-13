@@ -35,5 +35,5 @@ app.use(
 );
 
 app.listen(PORT, (err) => {
-  err ? console.log(err) : console.log('Server gamno!');
+  err ? console.log(err) : console.log(`Server runs at http://localhost:${PORT}`);
 });

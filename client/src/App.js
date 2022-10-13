@@ -1,20 +1,18 @@
-import ApolloClient from "apollo-boost";
 import React from "react";
-import { ApolloProvider } from "react-apollo";
-import MoviesList from "./components/MoviesList";
+import { ApolloProvider } from "@apollo/client";
+import { Grid, Container } from "@mui/material";
 
-const client = new ApolloClient({
-  uri: "http://localhost:3010/graphql",
-});
+import { client } from "./utils";
+import DirectorList from "./components/DirectorsList";
 
-function App() {
-  return (
-    <ApolloProvider client={client}>
-      <div className="App">
-        <MoviesList />
-      </div>
-    </ApolloProvider>
-  );
-}
+const App = () => (
+  <ApolloProvider client={client}>
+    <Container maxWidth="xl">
+      <Grid container spacing={2} justifyContent="center">
+        <DirectorList />
+      </Grid>
+    </Container>
+  </ApolloProvider>
+);
 
 export default App;
